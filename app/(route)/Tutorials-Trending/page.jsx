@@ -1,7 +1,7 @@
 import React from 'react'
 import MainT from './_component/MainT'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
 
@@ -10,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -4,7 +4,7 @@ import React from 'react'
 import TutorialDetails from '../_component/TutorialDetails'
 import CommentSection from '@/app/_componenents/CommentSection/CommentSection '
 
-const page = () => {
+const Page = () => {
 
     const {slug} = useParams()
   return (
@@ -16,4 +16,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

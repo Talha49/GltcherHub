@@ -4,11 +4,11 @@ import BlogDetail from '../_components/BlogDetail'
 import { useParams } from 'next/navigation';
 import CommentSection from '@/app/_componenents/CommentSection/CommentSection ';
 
-const page = () => {
+const Page = () => {
 
   const { slug } = useParams();
   
-  console.log("slug",slug)
+  console.log("slug",slug) 
   return (
     <div>
         <BlogDetail slug={slug}/>
@@ -21,4 +21,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

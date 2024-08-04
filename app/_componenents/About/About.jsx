@@ -64,37 +64,25 @@ const About = ({ onClose }) => {
 
         <div className="w-full md:w-2/3 mt-6 md:mt-0 md:ml-6">
           <h1 className="text-xl font-semibold text-gray-600 mb-2">
-            Welcome to Glitchy Coder - Your Ultimate Destination for Digital
-            Trends and Coding Tutorials!
+          {"Welcome to Glitchy Coder - Your Ultimate Destination for Digital Trends and Coding Tutorials!"}
           </h1>
           <h1 className="text-xl font-semibold mb-4 text-gray-600">
-            Explore the Latest Updates on Digital Trends, Technologies, and
-            Coding Tutorials
+            {"Explore the Latest Updates on Digital Trends, Technologies, and Coding Tutorials"}
           </h1>
           <p className="text-base  text-gray-700 mb-2">
-            Get the latest updates on digital trends, technologies, and coding
-            tutorials, and learn from experts in the field. Access source code
-            for hands-on practice and stay ahead in the digital world.
-          </p>
+{            "Get the latest updates on digital trends, technologies, and coding tutorials, and learn from experts in the field. Access source code for hands-on practice and stay ahead in the digital world."}          </p>
           <p className="text-base mb-2 text-gray-700">
-            Explore our comprehensive platform for learning and growth,
-            featuring step-by-step coding tutorials, blogs on digital trends,
-            and more. Join our community of coders and stay updated on the
-            latest developments in the digital world.
+            {"Explore our comprehensive platform for learning and growth, featuring step-by-step coding tutorials, blogs on digital trends, and more. Join our community of coders and stay updated on the latest developments in the digital world."}
           </p>
           <p className="text-base text-gray-700">
-            Our platform offers a wide range of resources for coders, including
-            tutorials, blogs, and source code. Whether you're a beginner or an
-            expert, we have something for everyone.
+           {" Our platform offers a wide range of resources for coders, including  tutorials, blogs, and source code. Whether you're a beginner or an expert, we have something for everyone."}
           </p>
           <div className="mt-4">
             <h1 className="text-xl font-semibold text-gray-600">
-              What I Offer - Latest Blogs, Tutorials, and Source Code
+              {"What I Offer - Latest Blogs, Tutorials, and Source Code"}
             </h1>
             <p className="mt-4 text-gray-700">
-              Latest blogs on digital trends and technologies, step-by-step
-              coding tutorials, and access to source code for tutorials. Join
-              our community today and start learning!
+             {" Latest blogs on digital trends and technologies, step-by-step  coding tutorials, and access to source code for tutorials. Join our community today and start learning!"}
             </p>
           </div>
         </div>
