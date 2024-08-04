@@ -41,7 +41,7 @@ const Intro = () => {
     className="rounded-lg shadow-lg transition duration-500 ease-in-out hover:scale-110 custom-image" 
   />
   <div className="absolute bottom-10  right-8 w-full h-full  bg-gradient-to-r from-purple-400 to-pink-300 opacity-25 rounded-lg hover:scale-90 duration-300 ease-in-out"></div>
-  <div className="absolute top-20 left-24 md:w-full md:h-full w-[30vh] h-[30vh] bg-gradient-to-r from-purple-400 to-pink-500 hover:scale-90 duration-300 ease-in-out opacity-25 rounded-lg"></div>
+  <div className="absolute top-20 left-24 lg:w-full lg:h-full md:w-[35vh] md:h-[35vh] w-[28vh] h-[30vh]  bg-gradient-to-r from-purple-400 to-pink-500 hover:scale-90 duration-300 ease-in-out opacity-25 rounded-lg"></div>
 </div>
         </div>
       </div>
