@@ -5,7 +5,12 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const formData = await request.formData();
-    const imageFile = formData.get('image');
+    const file = formData.get('file');
+    
+    if (file.size > 50 * 1024 * 1024) {  // 50MB limit
+      return NextResponse.json({ error: 'File is too large' }, { status: 400 });
+    }  
+      const imageFile = formData.get('image');
     const zipFile = formData.get('zip');
     const pdfFile = formData.get('pdf');
     const docFile = formData.get('doc');

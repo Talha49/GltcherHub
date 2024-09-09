@@ -2,25 +2,32 @@
 import ProtectedRoute from '@/app/_componenents/ProtectedRoute/ProtectedRoute';
 import { useState } from 'react';
 
-
 const Upload = () => {
   const [imageFile, setImageFile] = useState(null);
   const [zipFile, setZipFile] = useState(null);
+  const [documentFile, setDocumentFile] = useState(null); // New state for document files (PDF, DOCX)
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFileChange = (e, setFile) => {
-    setFile(e.target.files[0]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file.size > 50 * 1024 * 1024) { // 50MB limit
+      alert("File is too large. Maximum file size is 50MB.");
+      return;
+    }
+    setFile(file);
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!imageFile || !zipFile) return;
+    if (!imageFile || !zipFile || !documentFile) return; // Add documentFile to validation
 
     setIsLoading(true);
 
     const formData = new FormData();
     formData.append('image', imageFile);
     formData.append('zip', zipFile);
+    formData.append('document', documentFile); // Append document file to formData
 
     try {
       const response = await fetch('/api/upload', {
@@ -36,6 +43,7 @@ const Upload = () => {
       alert('Files uploaded successfully.');
       setImageFile(null);
       setZipFile(null);
+      setDocumentFile(null); // Reset documentFile
     } catch (error) {
       console.error('Error uploading files:', error);
       alert('Error uploading files. Please try again.');
@@ -59,6 +67,12 @@ const Upload = () => {
             type="file"
             onChange={(e) => handleFileChange(e, setZipFile)}
             accept=".zip"
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="file"
+            onChange={(e) => handleFileChange(e, setDocumentFile)}
+            accept=".pdf, .doc, .docx" // Accept PDFs and Word documents
             className="w-full p-2 border rounded"
           />
           <button
