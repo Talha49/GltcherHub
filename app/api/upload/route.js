@@ -1,4 +1,3 @@
-
 import { storage } from '@/app/firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { NextResponse } from 'next/server';
@@ -8,8 +7,11 @@ export async function POST(request) {
     const formData = await request.formData();
     const imageFile = formData.get('image');
     const zipFile = formData.get('zip');
+    const pdfFile = formData.get('pdf');
+    const docFile = formData.get('doc');
 
-    if (!imageFile || !zipFile) {
+    // Ensure at least one file is present
+    if (!imageFile && !zipFile && !pdfFile && !docFile) {
       return NextResponse.json({ error: 'Files are missing' }, { status: 400 });
     }
 
@@ -40,10 +42,23 @@ export async function POST(request) {
       });
     };
 
-    const imageUploadUrl = await uploadFile(imageFile, 'images');
-    const zipUploadUrl = await uploadFile(zipFile, 'zips');
+    // Upload files based on their type
+    const uploadResults = {};
 
-    return NextResponse.json({ imageUploadUrl, zipUploadUrl });
+    if (imageFile) {
+      uploadResults.imageUploadUrl = await uploadFile(imageFile, 'images');
+    }
+    if (zipFile) {
+      uploadResults.zipUploadUrl = await uploadFile(zipFile, 'zips');
+    }
+    if (pdfFile) {
+      uploadResults.pdfUploadUrl = await uploadFile(pdfFile, 'pdfs');
+    }
+    if (docFile) {
+      uploadResults.docUploadUrl = await uploadFile(docFile, 'docs');
+    }
+
+    return NextResponse.json(uploadResults);
   } catch (error) {
     console.error('Error handling upload:', error);
     return NextResponse.json({ error: 'Error handling upload' }, { status: 500 });
